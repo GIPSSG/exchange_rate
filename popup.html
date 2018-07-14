@@ -1,4 +1,34 @@
 <html>
-    <header></header>
-    <body>Hello World!</body>
+    <head>
+        <title> Currency Converter</title>
+        <link rel="stylesheet" type="text/css" href="popup.css">
+    </head>
+    <body>
+        <div id="box" >
+        <h2> Currency Converter</h2>
+        <table>
+            <tr><td><input id="fromAmount" type="text" size="15" value="1" onkeyup="convert();"/></td>
+            <td>
+                <select id="from" onchange="convert();">
+                <option value="USD">United States Dollar (USD)</option>
+                <option value="SGD" selected>Singapore Dollar (SGD)</option>
+                <option value="KRW">Korean Won (KRW)</option
+                </select>
+            </td>
+            </tr>
+            <tr><td><input id="toAmount" type="text" size="15" disabled/></td>
+            <td>
+                <select id="to" onchange="convertCurrency();">
+                <option value="USD"> United States Dollar (USD)</option>
+                <option value="SGD"> Singapore Dollar (SGD)</option>
+                <option value="KRW" selected> Korea Won (KRW)</option
+                </select>
+            </td>
+            </tr>
+            
+        </table>
+        </div>
+        <script src="popup.js"></script>
+        
+    </body>        
 </html>
