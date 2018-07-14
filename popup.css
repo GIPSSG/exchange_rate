@@ -6,9 +6,16 @@
 }
 h2{
   text-align: center;
-  color: blue;
+  color: cadetblue;
 }
 table
 {
   margin:0px auto
+}
+
+.currency-input, .currency-selection{
+  border-radius: 5px;
+  border: 0.5px solid cadetblue;
+  padding: 3px;
+  width: 100%;
 }

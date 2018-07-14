@@ -7,18 +7,18 @@
         <div id="box" >
         <h2> Currency Converter</h2>
         <table>
-            <tr><td><input id="fromAmount" type="text" size="15" value="1" ></td>
+            <tr><td><input class="currency-input" id="fromAmount" type="text" size="15" value="1" ></td>
             <td>
-                <select id="from">
+                <select class="currency-selection" id="from">
                 <option value="USD">United States Dollar (USD)</option>
                 <option value="SGD" selected>Singapore Dollar (SGD)</option>
                 <option value="KRW">Korean Won (KRW)</option
                 </select>
             </td>
             </tr>
-            <tr><td><input id="toAmount" type="text" size="15" disabled/></td>
+            <tr><td><input class="currency-input" id="toAmount" type="text" size="15" disabled/></td>
             <td>
-                <select id="to" onchange="convert();">
+                <select id="to" class="currency-selection" onchange="convert();">
                 <option value="USD"> United States Dollar (USD)</option>
                 <option value="SGD"> Singapore Dollar (SGD)</option>
                 <option value="KRW" selected> Korea Won (KRW)</option
