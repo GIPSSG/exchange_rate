@@ -6,10 +6,22 @@ var SGDKRW = rates[2];
 
 var result = 0;
 
-var fromCcy = document.getElementById('from')
-var fromAmt = document.getElementById('fromAmount')
-var toCcy = document.getElementById('to')
-var toAmount = document.getElementById('toAmount')
+var fromCcy = document.getElementById('from');
+var fromAmt = document.getElementById('fromAmount');
+var toCcy = document.getElementById('to');
+var toAmount = document.getElementById('toAmount');
+
+fromAmt.addEventListener("keyup", function(){
+  convert();
+});
+
+fromCcy.addEventListener("change", function(){
+  convert();
+});
+
+toCcy.addEventListener("change", function(){
+  convert();
+});
 
 function convert(){
   if(fromCcy.value == 'USD' && toCcy.value == 'SGD') {
