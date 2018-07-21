@@ -23,7 +23,11 @@ toCcy.addEventListener("change", function(){
   convert();
 });
 
-function convert(){
+function init() {
+  // setInterval()
+}
+
+function convert() {
   if(fromCcy.value == 'USD' && toCcy.value == 'SGD') {
     result = fromAmt.value * USDSGD;
   } else if (fromCcy.value == 'SGD' && toCcy == 'USD'){
