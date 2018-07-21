@@ -5,11 +5,11 @@ function API() {
 
   var init = function() {
     return {
-      get: function(params = {}) {
+      request: function(params = {}) {
         var serializedParams = serialize(Object.assign(params, { access_key }));
-        fetch(`${url}?${serializedParams}`)
-          .then(response => response.json())
-          .then(err => err);
+        return fetch(`${url}?${serializedParams}`)
+          .then((res) => res.json())
+          .catch(err => err);
       }
     }
   }
@@ -32,5 +32,3 @@ function serialize(obj) {
   }
   return str.join("&");
 }
-
-module.exports = API;
