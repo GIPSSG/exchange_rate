@@ -1,13 +1,17 @@
 {
-  "manifest_version": 2,
-  "name": "Exchange Rate Calculator",
-  "description": "exchange rate calculator",
-  "version": "1",
-  "author": "GIPS",
-  "browser_action": {
-    "default_icon": "exchange.png",
-    "default_title": "Exchange Rate Calculator",
-    "default_popup": "popup.html"
-  },
-  "permissions": ["activeTab"]
-}
+    "manifest_version": 2,
+    "name": "Exchange Rate Calculator",
+    "description": "exchange rate calculator",
+    "version": "1",
+    "author": "GIPS",
+   "browser_action": {
+      "default_icon": "exchange.png",
+      "default_title": "Exchange Rate Calculator",
+      "default_popup": "popup.html"
+    },
+    "background":{
+      "scripts": ["background.js", "utils/api.js", "moment.js"],
+      "persistent": false
+    },
+    "permissions": ["activeTab", "alarms", "notifications"]
+   }

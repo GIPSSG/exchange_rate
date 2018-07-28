@@ -1,11 +1,17 @@
-<html>
+<html style="height: 180px; width: 360px">
     <head>
         <title> Currency Converter</title>
         <link rel="stylesheet" type="text/css" href="popup.css">
+        <link rel="stylesheet" href="mdl/material.min.css">
+        <script src="mdl/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     </head>
     <body>
+        <div class="header">
+            <h5> Currency Converter</h5>
+        </div>
         <div id="box" >
-        <h2> Currency Converter</h2>
         <table>
             <tr><td><input class="currency-input" id="fromAmount" type="text" size="15" value="1" ></td>
             <td>
@@ -19,17 +25,24 @@
             <tr><td><input class="currency-input" id="toAmount" type="text" size="15" disabled/></td>
             <td>
                 <select id="to" class="currency-selection" onchange="convert();">
-                <option value="USD"> United States Dollar (USD)</option>
-                <option value="SGD"> Singapore Dollar (SGD)</option>
-                <option value="KRW" selected> Korean Won (KRW)</option>
+                    <option value="USD"> United States Dollar (USD)</option>
+                    <option value="SGD"> Singapore Dollar (SGD)</option>
+                    <option value="KRW" selected> Korean Won (KRW)</option>
                 </select>
             </td>
             </tr>
 
         </table>
         </div>
+        <div id="alarm-box">
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="alarm-test">
+                <input type="checkbox" id="alarm-test" class="mdl-switch__input">
+                <span class="mdl-switch__label">Turn on/off alarm for this</span>
+            </label>
+        </div>
         <script src="moment.js"></script>
         <script src="utils/api.js"></script>
+        <script src="alarms.js"></script>
         <script src="popup.js"></script>
     </body>        
 </html>
