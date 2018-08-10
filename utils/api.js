@@ -1,11 +1,10 @@
 function API() {
   var url = 'http://data.fixer.io/api/latest';
-  var access_key = 'dcd0e7da78f908987b3208b9379cf85f';
   var api = null;
 
   var init = function() {
     return {
-      request: function(params = {}) {
+      request: function(access_key, params = {}) {
         var serializedParams = serialize(Object.assign(params, { access_key }));
         return fetch(`${url}?${serializedParams}`)
           .then((res) => res.json())
