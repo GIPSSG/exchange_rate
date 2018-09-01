@@ -1,6 +1,5 @@
 chrome.alarms.onAlarm.addListener(function( alarm ) {
-    console.log(calculateRate());
-    //showNotification(300);
+    showNotification(calculateRate());
 });
 
 

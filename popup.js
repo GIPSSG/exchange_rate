@@ -27,10 +27,14 @@ fromAmt.addEventListener("keyup", function(){
 });
 
 fromCcy.addEventListener("change", function(){
+  var fromLabel = document.getElementById('fromLabel');
+  fromLabel.src = fromCcy.value + '.png';
   convert();
 });
 
 toCcy.addEventListener("change", function(){
+  var toLabel = document.getElementById('toLabel');
+  toLabel.src = toCcy.value + '.png';
   convert();
 });
 

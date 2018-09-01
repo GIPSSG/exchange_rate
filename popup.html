@@ -1,44 +1,74 @@
-<html style="height: 180px; width: 360px">
+<html style="height: 180px; width: 320px">
     <head>
         <title> Currency Converter</title>
         <link rel="stylesheet" type="text/css" href="popup.css">
-        <link rel="stylesheet" href="mdl/material.min.css">
-        <script src="mdl/material.min.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link rel="stylesheet" href="Semantic-UI-CSS-master/semantic.css">
+        <script src="Semantic-UI-CSS-master/jquery-3.3.1.min.js"></script>
+        <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
     </head>
     <body>
-        <div class="header">
-            <h5> Currency Converter</h5>
+        <div class="upper-area">
+            <div class="header">
+                <h5> Currency Converter</h5>
+            </div>
+            <div class="header-input">
+                <div class="mini ui right labeled input">
+                    <div class="ui basic label">
+                        <img id="fromLabel" src="SGD.png"/>
+                    </div>
+                    <input type="number" id="fromAmount" placeholder="input amount">
+                    
+                    <select class="ui compact selection dropdown" id="from">
+                        <option selected="" value="SGD">SGD</option>
+                        <option value="KRW">KRW</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+            </div>
         </div>
+        <div class="float-icon">
+            <i class="exchange icon"></i>
+        </div>
+        <div class="bottom-area">
+            <div class="header-input">
+                <div class="mini ui right labeled input">
+                    <div class="ui basic label">
+                        <img id="toLabel" src="KRW.png"/>
+                    </div>
+                    <input type="text" id="toAmount" placeholder="input amount" disabled>
+                    <select class="ui compact selection dropdown" id="to">
+                        <option value="SGD">SGD</option>
+                        <option selected="" value="KRW">KRW</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
         <div id="box" >
-        <table>
-            <tr><td><input class="currency-input" id="fromAmount" type="text" size="15" value="1" ></td>
-            <td>
-                <select class="currency-selection" id="from">
-                <option value="USD">United States Dollar (USD)</option>
-                <option value="SGD" selected>Singapore Dollar (SGD)</option>
-                <option value="KRW">Korean Won (KRW)</option>
-                </select>
-            </td>
-            </tr>
-            <tr><td><input class="currency-input" id="toAmount" type="text" size="15" disabled/></td>
-            <td>
-                <select id="to" class="currency-selection" onchange="convert();">
-                    <option value="USD"> United States Dollar (USD)</option>
-                    <option value="SGD"> Singapore Dollar (SGD)</option>
-                    <option value="KRW" selected> Korean Won (KRW)</option>
-                </select>
-            </td>
-            </tr>
-
-        </table>
+        
         </div>
         <div id="alarm-box">
-            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="alarm-test">
-                <input type="checkbox" id="alarm-test" class="mdl-switch__input">
-                <span class="mdl-switch__label">Turn on/off alarm for this</span>
-            </label>
+            <div class="ui toggle checkbox" for="alarm-test">
+                <input type="checkbox" id="alarm-test">
+                <label>Turn on/off alarm for this</span>
+            </div>
+            <label>Inform me when</span>
+            <select class="ui compact selection dropdown" id="alarm-from">
+                <option value="SGD">SGD</option>
+                <option selected="" value="KRW">KRW</option>
+                <option value="USD">USD</option>
+            </select>
+            <label>to</span>
+            <select class="ui compact selection dropdown" id="alarm-to">
+                <option value="SGD">SGD</option>
+                <option selected="" value="KRW">KRW</option>
+                <option value="USD">USD</option>
+            </select>
+            <label>is over</span>
+            <div class="ui input">
+                <input type="text" placeholder="-" >
+            </div>
         </div>
         <script src="lodash.js"></script>
         <script src="moment.js"></script>
