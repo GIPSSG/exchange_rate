@@ -49,47 +49,21 @@
         
         </div>
         <div id="alarm-box">
-            <!-- <div class="ui toggle checkbox" for="alarm-test">
-                <input type="checkbox" id="alarm-test"> -->
-                <label>Alert me when the amount is</span>
-            </div>
+            <label>Alert me when the amount is</span>
             <div id="setting">
-                <!-- <div class="ui labeled input">
-                    <div class="ui label">
-                        From
-                    </div>
-                    <select class="ui compact selection dropdown" id="alarm-from">
-                        <option value="SGD">SGD</option>
-                        <option selected="" value="KRW">KRW</option>
-                        <option value="USD">USD</option>
-                    </select>
-                </div>
                 <div class="ui labeled input">
-                    <div class="ui label">
-                        to
-                    </div>
-                    <select class="ui compact selection dropdown" id="alarm-to">
-                        <option value="SGD">SGD</option>
-                        <option selected="" value="KRW">KRW</option>
-                        <option value="USD">USD</option>
-                    </select>
-                </div> -->
-                <div class="ui labeled input">
-                    <!-- <div class="ui label">
-                        Is 
-                    </div> -->
                     <select class="ui compact selection dropdown" id="over-below">
-                        <option selected="" value="SGD">over</option>
-                        <option value="KRW">below</option>
+                        <option selected="" value="1">Over</option>
+                        <option value="0">Below</option>
                     </select>
-                    <input type="text" placeholder="amount">
+                    <input id="alarm-amount" type="number" placeholder="amount">
                 </div>
-                <button id="cancelInput" class="ui icon button">
-                    <i class="cancel icon"></i>
-                </button>
-                <button id="saveInput" class="ui icon positive button">
+                <button id="save-alarm-button" class="ui disabled icon positive button">
                     <i class="check icon"></i>
                 </button>
+            </div>
+            <div id="alarm-list" class="ui middle aligned divided list">
+                
             </div>
         </div>
         <script src="moment.js"></script>

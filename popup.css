@@ -7,7 +7,7 @@
 #alarm-box{
   width: auto;
   height: auto;
-  margin: 16px;
+  margin: 5px;
 }
 h2{
   text-align: center;
@@ -97,4 +97,32 @@ table
 .header h5{
   color: white;
   margin: auto;
+}
+
+#setting{
+  width: 100%;
+  display: flex;
+}
+
+#setting .selection.dropdown{
+  margin-right: 4px;
+  border-radius: 0.28571429rem !important;
+}
+
+#alarm-amount{
+  width: 154px;
+  margin-right: 4px;
+}
+
+#alarm-list{
+  margin-left: 4px;
+}
+
+.list-icon{
+  width: 2em;
+  height: 2em;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 6px;
+  color: #676868;
 }

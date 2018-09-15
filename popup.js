@@ -16,6 +16,8 @@ var fromAmt = document.getElementById('fromAmount');
 var toCcy = document.getElementById('to');
 var toAmount = document.getElementById('toAmount');
 
+var fromValue, toValue, isOver, amount;
+
 fromAmt.addEventListener("keyup", function(){
   convert();
 });
@@ -47,15 +49,71 @@ function request() {
       window.localStorage.setItem('exchange_data', JSON.stringify(_data));
       window.localStorage.setItem('exchange_data_expires_at', new Date());
       data = _data;
-    })  
+    }) 
 }
 
 function init() {
-  if(!data || !expiresAt || moment(expiresAt).isBefore(moment(), 'day') ) request();
+  request();
+  setInterval(request, 1000 * 60 * 60);
+  getAlarmIfExists();
 }
 
 function convert() {
-  toAmount.value = Number(Math.round((fromAmt.value / data.rates[fromCcy.value] * data.rates[toCcy.value])*100)/100).toLocaleString('en');
+  var targetValue = Math.round((fromAmt.value / data.rates[fromCcy.value] * data.rates[toCcy.value])*100)/100; 
+  toAmount.value = Number(targetValue).toLocaleString('en');
+  alarmAmount.value = targetValue;
+  if(parseFloat(alarmAmount.value) > 0){
+    alarmConfirmButton.classList.remove('disabled');
+  }else{
+    alarmConfirmButton.classList.add('disabled');
+  }
+}
+
+function addNewAlarmItem(fromValue, toValue, isOver, amount){
+  var item = document.createElement('div');
+  item.classList.add('item');
+
+  var domInnerValue = 
+    '<div class="right floated content">' +
+      '<div id="cancel-alarm" class="ui red icon button">' + 
+        '<i class="cancel icon"></i>' + 
+      '</div>' + 
+    '</div>' + 
+    '<img class="ui avatar image" src="'+fromValue+'.png">' + 
+    '<div class="list-icon">' + 
+      '<i class="arrow circle right icon"></i>' + 
+    '</div>' + 
+    '<img class="ui avatar image" src="'+toValue+'.png">' + 
+    '<div class="content">' + 
+    (parseInt(isOver) > 0 ? '> ' : '< ') + 
+    amount + 
+    '</div>';
+
+    item.innerHTML = domInnerValue;
+
+  var listWrapper = document.getElementById('alarm-list');
+  if(listWrapper.lastChild){
+    listWrapper.removeChild(listWrapper.lastChild);
+  }
+  listWrapper.appendChild(item);
+
+  var cancelButton =  document.getElementById('cancel-alarm');
+  cancelButton.addEventListener("click", alarmCancelFunction);
+}
+
+function getAlarmIfExists(){
+  var myStorage = window.localStorage;
+  var savedJsonString = myStorage.getItem(alarmStorageKey);
+
+  if(savedJsonString !== undefined){
+    savedJson = JSON.parse(savedJsonString);
+    fromValue = savedJson['fromValue'];
+    toValue = savedJson['toValue'];
+    isOver = savedJson['isOver'];
+    amount = savedJson['amount'];
+
+    addNewAlarmItem(fromValue, toValue, isOver, amount);
+  }
 }
 
 init();
