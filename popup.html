@@ -53,24 +53,39 @@
                 <input type="checkbox" id="alarm-test">
                 <label>Turn on/off alarm for this</span>
             </div>
-            <label>Inform me when</span>
-            <select class="ui compact selection dropdown" id="alarm-from">
-                <option value="SGD">SGD</option>
-                <option selected="" value="KRW">KRW</option>
-                <option value="USD">USD</option>
-            </select>
-            <label>to</span>
-            <select class="ui compact selection dropdown" id="alarm-to">
-                <option value="SGD">SGD</option>
-                <option selected="" value="KRW">KRW</option>
-                <option value="USD">USD</option>
-            </select>
-            <label>is over</span>
-            <div class="ui input">
-                <input type="text" placeholder="-" >
+            <div id="setting">
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        From
+                    </div>
+                    <select class="ui compact selection dropdown" id="alarm-from">
+                        <option value="SGD">SGD</option>
+                        <option selected="" value="KRW">KRW</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        to
+                    </div>
+                    <select class="ui compact selection dropdown" id="alarm-to">
+                        <option value="SGD">SGD</option>
+                        <option selected="" value="KRW">KRW</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+                <div class="ui labeled input">
+                    <div class="ui label">
+                        Is 
+                    </div>
+                    <select class="ui compact selection dropdown" id="over-below">
+                        <option selected="" value="SGD">over</option>
+                        <option value="KRW">below</option>
+                    </select>
+                    <input type="text" placeholder="amount">
+                </div>
             </div>
         </div>
-        <script src="lodash.js"></script>
         <script src="moment.js"></script>
         <script src="utils/api.js"></script>
         <script src="alarms.js"></script>
