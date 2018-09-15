@@ -1,5 +1,8 @@
 var result = 0;
-var data = JSON.parse(window.localStorage.getItem('exchange_data'));
+
+var data = window.localStorage.getItem('exchange_data');
+if(data) data = JSON.parse(data);
+
 var expiresAt = window.localStorage.getItem('exchange_data_expires_at');
 if(expiresAt) expiresAt = moment(new Date(expiresAt).toISOString());
 
